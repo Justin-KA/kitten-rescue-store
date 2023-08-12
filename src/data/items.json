@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Chestnoot",
+        "price": 7.99,
+        "imgUrl":"imgs/chestnoot.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Baby B",
+        "price": 1212,
+        "imgUrl":"imgs/babyb.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Bed Bear",
+        "price": 16090,
+        "imgUrl":"imgs/bedbear.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Couch Patate",
+        "price": 255.55,
+        "imgUrl":"imgs/couchpatate.jpg"
+    }
+]
