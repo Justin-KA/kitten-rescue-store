@@ -1,6 +1,6 @@
 import { ReactNode, createContext, useContext, useState } from "react";
 
-const ShoppingCartContent = createContext({} as ShoppingCartContext)
+const ShoppingCartContext = createContext({} as ShoppingCartContext)
 
 type ShoppingCartProviderProps = {
     children: ReactNode
@@ -20,7 +20,7 @@ type CartItem ={
 
 //this is the radio that listens for context
 export function useShoppingCart() {
-    return useContext(ShoppingCartContent)
+    return useContext(ShoppingCartContext)
 }
 
 
@@ -34,7 +34,7 @@ export function ShoppingCartProvider({children} : ShoppingCartProviderProps) {
 
     function increaseCartQuantity(id: number) {
         setCartItems(currItems => {
-            if(cartItems.find(item => item.id === id) === null){
+            if(cartItems.find(item => item.id === id) == null){
                 return [...currItems, {id, quantity: 1}]
             } else {
                 return currItems.map(item => {
@@ -71,8 +71,14 @@ export function ShoppingCartProvider({children} : ShoppingCartProviderProps) {
     }
 
     return (
-        <ShoppingCartContent.Provider value={{getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart}}>
+        <ShoppingCartContext.Provider 
+            value={{
+                getItemQuantity,
+                increaseCartQuantity,
+                decreaseCartQuantity,
+                removeFromCart
+                }}>
             {children}
-        </ShoppingCartContent.Provider>
+        </ShoppingCartContext.Provider>
     )
 }
